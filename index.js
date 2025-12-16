@@ -49,6 +49,11 @@ mathProps.forEach(p => {
     mathContext[p] = Math[p];
 });
 
+// Custom Functions
+mathContext['power'] = Math.pow;
+mathContext['signed_power'] = (x, y) => Math.sign(x) * Math.pow(Math.abs(x), y);
+mathContext['sigmoid'] = (x) => 1 / (1 + Math.exp(-x));
+
 function evaluateFunction(expression, x) {
     try {
         // Create a function that executes with Math properties in scope and 'x' as argument
