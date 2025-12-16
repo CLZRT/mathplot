@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Plotter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Infinity Plotter</h1>
+            <p>Visualize the language of the universe.</p>
+        </header>
+
+        <main>
+            <div class="plotter-card glass">
+                <div class="input-group">
+                    <label for="functionInput">f(x) =</label>
+                    <input type="text" id="functionInput" value="sin(x) * x" placeholder="Type a function like sin(x)..." autocomplete="off">
+                </div>
+                
+                <div class="canvas-wrapper">
+                    <canvas id="plotCanvas"></canvas>
+                </div>
+
+                <div class="controls">
+                    <button id="resetView" class="btn glass-btn">Reset View</button>
+                    <!-- Future controls for zoom/pan could go here -->
+                </div>
+                <div class="tips">
+                    <p>Try: <span>sin(x)</span>, <span>cos(x) * x</span>, <span>log(abs(x))</span>, <span>sqrt(x)</span></p>
+                    <p>Supports: sin, cos, tan, log, sqrt, abs, pow, exp, and normal arithmetic.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

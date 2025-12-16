@@ -1,0 +1,186 @@
+:root {
+    --bg-color: #0f172a;
+    --accent-color: #06b6d4; /* Cyan */
+    --accent-glow: rgba(6, 182, 212, 0.5);
+    --secondary-accent: #8b5cf6; /* Violet */
+    --text-color: #f1f5f9;
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --input-bg: rgba(15, 23, 42, 0.6);
+    --grid-line: rgba(255, 255, 255, 0.1);
+    --axis-line: rgba(255, 255, 255, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 20%);
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #fff 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px var(--accent-glow);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.05em;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    font-weight: 300;
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.plotter-card {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--input-bg);
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.input-group:focus-within {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.input-group label {
+    font-family: 'Outfit', sans-serif; /* Monospace for math feel */
+    font-size: 1.25rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.input-group input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.25rem;
+    font-family: 'Courier New', Courier, monospace;
+    outline: none;
+}
+
+.canvas-wrapper {
+    width: 100%;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.glass-btn {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    border: 1px solid var(--glass-border);
+}
+
+.glass-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tips {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.tips span {
+    color: var(--secondary-accent);
+    background: rgba(139, 92, 246, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
